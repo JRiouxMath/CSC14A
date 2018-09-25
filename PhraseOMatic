@@ -1,0 +1,50 @@
+<!--Jeanine Rioux-->
+<!--CSC 14A  9/24/18-->
+<!-- Phrase O Matic: "How To Study" MadLibs-->
+<!doctype html>
+<html lang = "en">
+<head>
+	<title>How To Study</title>
+	<meta charset = "utf-8">
+	<script>
+		function makePhrases()
+		{
+			var noun = ["house", "dog", "apple", "rocket", "lion", "bag", "car", "blender", "tree", "sandwich"];
+			var adj = ["little", "ugly", "purple", "quick", "chaotic", "gaunt", "narrow", "studious", "elaborate", "arrogant"];
+			var verb = ["run", "eat", "shoot", "write", "break", "program", "open", "click", "fall", "erase"];
+			var plNoun = ["oranges", "coats", "friends", "tables", "stars", "swords", "words", "lives", "holes", "pets"];
+			var adverb = ["quickly", "noisily", "rapidly", "sloppily", "messily", "argumentatively", "frostily", "odoriferously", "amorously", "intelligently"];
+		
+			var phrase =  capFirst(adj[getRan()]) +" teachers always give out " + adj[getRan()] + " assignments.  But as everyone knows, " +
+							"if you want to pass all your classes so you can go to a/an " + noun[getRan()] + " and have millions of " +
+							plNoun[getRan()] + " in the bank, you must do your homework and study " + adverb[getRan()] +
+							". If you just sit around and " + verb[getRan()] + ", you won't get ahead in life.  You must " +
+							" learn to pay attention to every " + adj[getRan()] + " thing your teacher says.  Do not interrupt " +
+							" or whisper to other " + plNoun[getRan()] + " during class.  Be sure to have a nice, " + adj[getRan()] +
+							" notebook in which you can write down anything the teacher says that seems " + adj[getRan()] +
+							". Then go home and memorize all of those " + adj[getRan()] + " notes.  When your teacher gives a " +
+							"surprise quiz, you will know all of the " + plNoun[getRan()] + ".";
+			
+			document.write(phrase);
+		
+		}//end function makePhrases
+		
+		function capFirst(word)
+		{
+			var lower = word.substr(1);
+			var upper = word.charAt(0).toUpperCase();
+			
+			return upper+lower;
+		}//end function capFirst
+		
+		function getRan()
+		{
+			return Math.floor(Math.random() * 10);
+		}//end function getRan
+		
+		
+		makePhrases();
+	</script>
+</head>
+<body></body>
+</html
