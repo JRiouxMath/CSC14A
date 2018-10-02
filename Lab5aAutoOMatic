@@ -11,10 +11,10 @@
 	<script>
 	function makeCar()
 	{
-		var makes = ["Chevy", "GM", "Fiat", "Dodge", "Jeep"];
-		var models = ["Cadillac", "500", "Bel-Air", "Grand Caravan", "Cherokee"];
-		var years = [ 1955, 1957, 1948, 1954, 1961];
-		var colors = ["red", "blue", "tan", "silver", "burgundy"];
+		var makes = ["Chevy", "GM", "Fiat", "Dodge", "Jeep", "Ford"];
+		var models = ["Cadillac", "500", "Bel-Air", "Grand Caravan", "Cherokee", "F150"];
+		var years = [ 1955, 1957, 1948, 1954, 1961, 2018];
+		var colors = ["red", "blue", "tan", "silver", "burgundy", "black"];
 		var convertible = [true, false];
 		
 		var rand1 = Math.floor(Math.random() * makes.length);
@@ -43,9 +43,11 @@
 		
 	}//end function displayCar
 	
+	for (var i = 0; i < 5; i++)
+	{
 	var carToSell = makeCar();
 	displayCar(carToSell);
-	
+	}//end for loop to produce 5 vehicles
 	</script>
 	<body>
 	</body>
