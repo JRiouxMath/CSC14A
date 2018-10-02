@@ -1,0 +1,81 @@
+<!--Jeanine Rioux -->
+<!--CSC 14A 10/1/18-->
+<!--Lab 5b: Auto-O-Matic2-->
+<!--Relies on code from text-->
+
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<title> Lab 5b: Auto-O-Matic 2</title>
+	<script>
+	
+	var Caravan = {
+		make: "Dodge",
+		model: "Grand Caravan",
+		year: 2014,
+		color: "Silver",
+		passengers: 8,
+		convertible: false,
+		mileage: 100000,
+		started: false,
+		fuel: 10,
+
+		start: function ( ) {
+			this.started = true;
+
+		}, //end method start
+
+		stop: function ( ) {
+			this.started = false;
+		}, // end method stop
+
+		drive: function ( ) {
+			if(this.started && this.fuel > 0)
+			{
+				console.log("Bumbling along with my crew");
+				this.mileage+=5;
+				this.fuel--;
+			}//end if started	
+			else
+			{
+				console.log("Did you turn the car on and check the fuel gauge?");
+			}//end else
+		}, //end method drive
+
+		addFuel: function ( amount ){
+			this.fuel = this.fuel + amount;
+		}, //end method addFuel
+
+		}; //end object class
+
+ 
+console.log("You have " + Caravan.fuel + " gallons in the tank.");
+console.log("Your mileage is " + Caravan.mileage);
+//now call the functions - see bottom pg 211
+Caravan.drive();
+//start the car
+Caravan.start();
+//drive the car
+Caravan.drive();
+//add some fuel
+Caravan.addFuel(2);
+//drive the car 
+Caravan.drive();
+//drive the car
+Caravan.drive();
+//drive the car
+Caravan.drive();
+//stop the car	
+Caravan.stop();
+
+console.log("You have " + Caravan.fuel + " gallons in the tank.");
+console.log("Your mileage is " + Caravan.mileage);
+	
+
+		</script>
+	<body>
+	</body>
+
+</head>	
+</ht
