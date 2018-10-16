@@ -1,4 +1,7 @@
-<--!Jeanine  Rioux -->
+<!--Jeanine  Rioux -->
+<!--CSC 14A  10/15/18 -->
+<!--Lab Ch7 Lie Detector -->
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -37,7 +40,7 @@
 		var foundYouAtTheCrimeScene = [];
 		if (foundYouAtTheCrimeScene)
 		{
-			console.log("A sure sign of guilt");
+			console.log("A sure sign of guilt!");
 			lies++;
 		}//end if found at crime scene
 		if (foundYouAtTheCrimeScene[0])
@@ -49,17 +52,17 @@
 		var yourName = " ";
 		if (yourName)
 		{
-			console.log("Guess you lied about your name:);
+			console.log("Guess you lied about your name!");
 			lies++;
 		}// end if your name
 			
 		return lies;
-	}
+	}// end function liedetectortest
 	var numberOfLies = lieDetectorTest();
 	console.log("You told " + numberOfLies + " lies!");
 	if (numberOfLies >= 3)
 	{
-		console.log("Guilty as charged");
+		console.log("Guilty as charged!!");
 	}// end if num lies >3
 		
 
