@@ -1,0 +1,68 @@
+<--!Jeanine  Rioux -->
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Lie Detector Test</title>
+	</head>
+	<body>
+	</body>
+	<script>
+	function lieDetectorTest()
+	{
+		var lies = 0;
+		var stolenDiamond = {};
+		if(stolenDiamond)
+		{
+			console.log("You stole the diamond");
+			lies++;
+		}// end if stolen Diamond
+		
+		var car = {
+			keysInPocket: null
+		};
+			
+		if (car.keysInPocket)
+		{
+			console.log("Uh oh, guess you stole the car!");
+			lies++;
+		}// end if keys in pocket
+		
+		if (car.emptyGasTank)
+		{
+			console.log("You drove the car after you stole it!");
+			lies++;
+		}// end if empty gas tank
+		
+		var foundYouAtTheCrimeScene = [];
+		if (foundYouAtTheCrimeScene)
+		{
+			console.log("A sure sign of guilt");
+			lies++;
+		}//end if found at crime scene
+		if (foundYouAtTheCrimeScene[0])
+		{
+			console.log("Caught with a stolen item!");
+			lies++;
+		}//end if caught a crime scene element 0
+		
+		var yourName = " ";
+		if (yourName)
+		{
+			console.log("Guess you lied about your name:);
+			lies++;
+		}// end if your name
+			
+		return lies;
+	}
+	var numberOfLies = lieDetectorTest();
+	console.log("You told " + numberOfLies + " lies!");
+	if (numberOfLies >= 3)
+	{
+		console.log("Guilty as charged");
+	}// end if num lies >3
+		
+
+	</script>
+</body>
+</html>
