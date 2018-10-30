@@ -19,9 +19,25 @@ var model = {
     shipLength: 3,
     shipsSunk: 0,
     
-    ships: [{locations: ["06", "16", "26"], hits: ["", "", ""]},// end ship1
-            {locations: ["24", "34", "44"], hits: ["", "", ""]},// end ship2
-            {locations: ["10", "11", "12"], hits: ["", "", ""]}],// end ship3
+    ships: [{locations: [0, 0, 0], hits: ["", "", ""]},// end ship1
+            {locations: [0, 0, 0], hits: ["", "", ""]},// end ship2
+            {locations: [0, 0, 0], hits: ["", "", ""]}],// end ship3
+
+    collision: function(locations)
+    {
+        for (var i =  0; i < this.numShips; i++)
+        {
+            var ship = this.ships[i];
+            for(var j = 0; j < locations.length; j++)
+            {
+                if (ship.locations.indexOf(locations[j]) >= 0)
+                {
+                    return true;
+                }//end if
+            }// end inner for loop
+        }//end outer for loop
+        return false;
+    },//end method collision
                 
     fire: function(guess) {
         for (var i = 0; i < this.numShips; i++){
@@ -58,8 +74,8 @@ var model = {
         for (var i = 0; i < this.numShips; i++)
             {
                 do{
-                    locations = this.generatShip()
-                } while(this.collision(locatins));
+                    locations = this.generateShip()
+                } while(this.collision(locations));
                 this.ships[i].locations = locations;
             }// end for loop
     },// end function to generate ships locs
@@ -70,25 +86,27 @@ var model = {
         var row, col;
         if (direction === 1)
             {
-                
+                row = Math.floor(Math.random() * this.boardSize);
+                col = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
+
             }// end if
         else
             {
-            
+                row = Math.floor(Math.random() * this.boardSize - (this.shipLength + 1));
+                col = Math.floor(Math.random() * this.boardSize);
             }// end else
         var newShipLocations = [];
         for (var i = 0; i < this.shipLength; i++)
             {
                 if (direction === 1)
                     {
-                        row = Math.floor(Math.random() * this.boardSize);
-                        col = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
+                        newShipLocations.push(row + "" + (col + i));
                     }// end if inside for
                     
                 else
                     {
-                        row = Math.floor(Math.random() * this.boardSize-this.shipLength +1);
-                        col = Math.floor(Math.random() * this.boardSize);   
+                        newShipLocations.push((row + i) + "" + col);
+   
                     }// end else inside for
             }// end for loop
         
@@ -154,6 +172,8 @@ function init()
     fireButton.onclick = handleFireButton;
     var guessInput = document.getElementById("guessInput");
     guessInput.onkeypress = handleKeyPress;
+
+    model.generateShipLocations();
 }//end init function 
 
 function handleFireButton()
