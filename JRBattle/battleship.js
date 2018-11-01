@@ -92,7 +92,7 @@ var model = {
             }// end if
         else
             {
-                row = Math.floor(Math.random() * this.boardSize - (this.shipLength + 1));
+                row = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
                 col = Math.floor(Math.random() * this.boardSize);
             }// end else
         var newShipLocations = [];
