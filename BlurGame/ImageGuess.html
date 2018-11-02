@@ -1,3 +1,6 @@
+<!--Jeanine Rioux-->
+<!--CSC 14A 10/31/18-->
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -15,15 +18,15 @@
             function reblur(image)
             {
                 image.src = image.id + "blur.jpg";
-            }
+            }//end function reblur
 
             function showAnswer(eventObj)
             {
                 var image= eventObj.target;
                 image.src = image.id + ".jpg";
 
-                setTimeout(reblur, 2000, image);
-            }
+                setTimeout(reblur, 8000, image);
+            }// end funciton showAnswer
 
             function init()
             {
@@ -31,8 +34,8 @@
                 for (var i = 0; i < images.length; i++)
                 {
                     images[i].onclick = showAnswer;
-                }
-            }
+                }//end for loop
+            }//end function init
 
         </script>
     </head>
