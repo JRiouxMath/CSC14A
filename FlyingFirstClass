@@ -1,0 +1,145 @@
+<!--Jeanine Rioux -->
+<!-- CSC 14A 11/5/18-->
+<!-- Flying First Class Lab 10 -->
+
+<!doctype html>
+<html lang = "en">
+	<head>
+		<meta charset= "utf-8">
+		<title>Flying First CLass</title>
+    </head>
+    <body>
+        <script>
+        var passengers = [  { name: "Ron Weasley", paid: false, ticket: "coach"},
+                            { name: "Lord Voldemort", paid: true, ticket: "firstclass"},
+                            { name: "Harry Potter", paid: false, ticket: "firstclass" },
+                            { name: "Hermione Granger", paid: true, ticket: "premium"}    ];
+
+        function checkNoFlylist(passenger)
+        {
+            return (passenger.name === "Lord Voldemort");
+        }//end function check no fly list
+
+        function checkNotPaid(passenger)
+        {
+            return (!passenger.paid);
+        }//end function check not paid
+
+        function processPassengers(passengers, testFunction)
+        {
+            for (var i = 0; i < passengers.length; i++)
+            {
+                if(testFunction(passengers[i]))
+                {
+                    return false;
+                }//end if test function
+            }//end for passengers
+            return true;
+        }//end function processPassengers
+
+        function createDrinkOrder(passenger)
+        {
+            var orderFunction;
+            if (passenger.ticket === "firstclass")
+            {
+                orderFunction = function()
+                {
+                    document.write("Would you like a firewhiskey or ale?<br>");
+                }//end orderfunction;
+            }// end if firstclass
+            else if(passenger.ticket === "premium")
+            {
+                orderFunction = function()
+                {
+                    document.write("Would you like ale, pumpkin juice or butter beer?<br>");
+                }//end orderfunction;
+            }// end else if premium
+            else
+            {
+                orderFunction = function()
+                {
+                    document.write("Your options are pumpkin juice or butter beer.<br>");
+                }
+            }//end else firstclass
+            return orderFunction;
+        }// end function createDrinkOrder
+
+        function createDinnerOrder(passenger)
+        {
+            var orderFunction;
+            if(passenger.ticket === "firstclass")
+            {
+                orderFunction = function()
+                {
+                    document.write("Would you prefer niffler nuggets or basilisk filet?<br>");
+                }//end orderfunction;
+            }// end if firstclass
+            else if(passenger.ticket === "premium")
+            {
+                orderFunction = function()
+                {
+                    document.write("Do you want bowtruckle wafers or puffskein nuggets?<br>");
+                }//end orderfunction;
+            }// end else if premium
+            else
+            {
+                orderFunction = function()
+                {
+                    document.write("You may choose between pumpkin pasties or cauldron cakes.<br>");
+                }
+            }//end else firstclass
+            return orderFunction;
+        }//end function dinner order
+
+        function pickUpTrash()
+        {
+            document.write("Do you have any trash to incinerate?<br>");
+        }//end function pickUpTrash
+
+        function printPassenger(passenger)
+        {
+            if (passenger.paid)
+                console.log(passenger.name + " has paid.");
+            else
+                console.log( passenger.name + " has not paid."); 
+        }//end function print passenger
+
+        function serveCustomer(passenger)
+        {
+            document.write("<br>Good afternoon, " + passenger.name + "<br>");
+            var getDrinkOrderFunction = createDrinkOrder(passenger);
+            var getDinnerOrderFunction = createDinnerOrder(passenger);
+            getDrinkOrderFunction();
+            getDinnerOrderFunction();
+            pickUpTrash();
+            getDrinkOrderFunction();
+            getDrinkOrderFunction();
+
+            getDrinkOrderFunction();
+        }//end function serveCustomer
+
+        function servePassengers(passengers)
+        {
+            for (var i = 0; i < passengers.length; i++)
+            {
+                serveCustomer(passengers[i]);
+            }//end for loop
+        }// end function servePassengers
+
+        var allCanFly = processPassengers(passengers, checkNoFlylist);
+        if(!allCanFly)
+        {
+            console.log("The plane can't take off: we have a passenger on the no fly list");
+        }//end if not all can fly
+
+        var allPaid = processPassengers(passengers, checkNotPaid);
+        if (!allPaid)
+        {
+            console.log("The plane can't take off: not all passengers have paid.");
+        }//end if not all paid
+        processPassengers(passengers, printPassenger);
+        servePassengers(passengers);
+    </script>
+    </body>
+
+</html>
