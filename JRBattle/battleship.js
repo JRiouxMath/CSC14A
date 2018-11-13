@@ -58,6 +58,8 @@ var model = {
         view.displayMessage("You missed.");
         return false;
     },//end function fire
+
+
     
     isSunk: function (ship) {
         for (var i = 0; i < this.shipLength; i++) {
@@ -141,7 +143,7 @@ function parseGuess(guess){
     
     if (guess === null || guess.length !== 2)
         {
-            alert("Oops, please enter aletter and anumber on the board.");
+            alert("Oops, please enter a letter and a number on the board.");
         }// end inner if
     else
         {
@@ -172,6 +174,8 @@ function init()
     fireButton.onclick = handleFireButton;
     var guessInput = document.getElementById("guessInput");
     guessInput.onkeypress = handleKeyPress;
+    var replayButton = document.getElementById("replayButton");
+    replayButton.onclick = handleReplayButton;
 
     model.generateShipLocations();
 }//end init function 
@@ -188,28 +192,18 @@ function handleFireButton()
 function handleKeyPress(e)
 {
     var fireButton = document.getElementById("fireButton");
+    var playAgain = document.getElementById("replayButton");
     if (e.keyCode === 13)
         {
             fireButton.click();
             return false;
-        }
+        }//end handle return key
+      
 }// end function keyPress handler
 
+function handleReplayButton()
+{
+   window.location.reload(false);
+}// end function replay handler
+
 window.onload = init;
-//////////////////////TESTING AREA
-/*
-controller.processGuess("A0");
-
-controller.processGuess("A6");
-controller.processGuess("B6");
-controller.processGuess("C6");
-
-controller.processGuess("C4");
-controller.processGuess("D4");
-controller.processGuess("E4");
-
-controller.processGuess("B0");
-controller.processGuess("B1");
-controller.processGuess("B2");
-
-*/
