@@ -1,0 +1,86 @@
+<!--Jeanine Rioux-->
+<!--CSC 14 A    11/26/18-->
+<!--The Car Constructor-->
+<!--Code taken from text, for extra credit, it has been modified to include prototype-->
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Car Constructor</title>
+	<script>
+	
+	function Car(make, model, year, color, passengers, convertible, mileage) 
+	{
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.color = color;
+		this.passengers = passengers;
+		this.mileage = mileage;
+		this.started = false;
+		
+		
+	}//end constructor
+	
+	//methods now in prototype
+	Car.prototype.start = function()
+		{
+			this.started = true;
+		};//end start function
+		
+	Car.prototype.drive = function()
+		{
+			if(this.started)
+			{
+				document.write(this.make + " " + this.model + " goes zoom zoom! <br>");
+			}//end if
+		};//end drive function
+		
+	Car.prototype.stop = function()
+		{
+			this.started = false;
+			document.write("<br>");
+		}//end stop function (also prints extra line for aesthetic)
+		
+
+	Car.prototype.truck = "Truck";
+	Car.prototype.minivan = "Minivan";
+	Car.prototype.suv = "SUV";
+	Car.prototype.sedan = "Sedan";
+	
+	
+	
+	//declare instances of the constructor
+	var dodge = new Car("Dodge", "Caravan", 2014, "silver", 8, false, 110110);
+	var chevy = new Car("Chevy", "Silverado", 2016, "blue", 3, false, 6700);
+	var hyundai = new Car("Hyundai", "Elantra", 2002, "white", 4, false, 190867);
+	var jeep = new Car("Jeep", "Wrangler", 2010, "red", 4, true, 170456);
+	var ford = new Car("Ford", "Anglia", 1990, "blue", 5, false, 210000);
+	
+	document.write("A " + dodge.make + " is a " + dodge.coupe + ". <br>");
+	document.write("A " + chevy.make + " is a " + chevy.truck + ". <br>");
+	document.write("A " + hyundai.make + " is a " + hyundai.sedan + ". <br>");
+	document.write("A " + jeep.make + " is a " + jeep.suv + ". <br>");
+	document.write("A " + ford.make + " is a " + ford.sedan + ". <br><br>");
+	
+	
+	//put the instances in an array
+	var cars = [dodge, chevy, hyundai, jeep, ford];
+	
+
+	//cycle through array for .start  .drive, .drive, .stop
+	
+	for (var i = 0; i < cars.length; i++)
+	{
+		cars[i].start();
+		cars[i].drive();
+		cars[i].drive();
+		cars[i].stop();
+	}//end loop to run start, drivex2, stop on each car in the array
+	
+	</script>
+</head>
+<body>
+</body>
+</html>
