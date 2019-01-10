@@ -1,0 +1,51 @@
+<!--Jeanine Rioux-->
+<!--CSC 14A 12/3/18-->
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Making Cookies</title>
+		<script type="text/javascript">
+			function MakeCookie()
+			{
+				//set up for the expiry date
+				var eatBy = new Date();
+				eatBy.setMonth( eatBy.getMonth() + 4 );
+				
+				//validate entry to prevent non-entry
+				if( document.cookieform.customer.value == ""){
+					alert("Enter some value!");
+					return;
+				}// end if 
+				
+				//create three cookies
+				cookievalue= escape(document.cookieform.customer.value) + ";";
+				countvalue= escape(document.cookieform.count.value) + ";";
+				sizevalue= escape(document.cookieform.size.value) + ";";
+				
+				//put the cookies into the document object so they can be eaten later
+				document.cookie="name=" + cookievalue;
+				document.cookie="count=" + countvalue;
+				document.cookie="size=" + sizevalue;
+				document.cookie="expires=" + eatBy.toUTCString() + ";"
+				
+				//output the cookies to verify correct entry
+				document.write ("Make these cookies : " + cookievalue + "<br>" );
+				document.write ("Make this many : " + countvalue + "<br>");
+				document.write("These cookies are : " + sizevalue + "<br>");
+				document.write("Must be eaten by : " + eatBy);
+			}//end function Makecookie
+		</script>
+	</head>
+	
+	<body>
+		<form name="cookieform" action="">
+			Cookie Type: <input type="text" name="customer"/>
+			Cookie Count : <input type="number" name="count"/>
+			Cookie Size : <input type="text" name="size"/>
+			<input type="button" value="Make Cookie" onclick="MakeCookie();"/>
+		</form>
+		
+	</body>
+</html>

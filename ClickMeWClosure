@@ -1,0 +1,43 @@
+<!--Jeanine Rioux -->
+<!--CSC 14A  1/19/2018--->
+<!--Click me! with a closure from textbook and Sesame Street --->
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Click me!</title>
+	<style>
+		body, button{ margin: 10px;}
+		div { padding: 10px; }
+	</style>
+	<script>
+		window.onload = function () 
+		{
+			var count = 0;
+			var message = "Count the clickies vith Count von Count! ";
+			var div = document.getElementById("message");
+			
+			var button = document.getElementById("clickme");
+			
+			div.innerHTML = "Count the button clickies vith Count von Count! Ah, ah, ah!";
+			button.onclick = function()
+			{
+				count++;
+				if( count % 3 == 0)
+					div.innerHTML = "AHH, " + count+" dat is a vunderful number! Yes, I like it so much.";
+				else if ( count % 5 == 0)
+					div.innerHTML = count + " Yes " + count + " clickies of the button! Ah, ah ah!";
+				else
+					div.innerHTML = count + " that is " + count + " button clickies!";
+			
+			}; // end inner function: event handler
+		}; // end outer function  = onload
+	</script>
+</head>
+
+<body>
+	<button id = "clickme"> Click Me! </button>
+	<div id="message"></div>
+</body>
+</html>

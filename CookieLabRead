@@ -1,0 +1,35 @@
+<!--Jeanine Rioux-->
+<!--CSC 14A 12/3/18-->
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Eating Cookies</title>
+		<script type="text/javascript">
+			function EatCookie()
+			{
+				var allcookies = document.cookie;
+				document.write("Cookies to be eaten : " + allcookies );
+				
+				cookiearray = allcookies.split(';');
+				
+				for(var i=0; i<cookiearray.length; i++) 
+				{
+					name= cookiearray[i].split('=')[0];
+					value= cookiearray[i].split('=')[1];
+					document.write("<br>Key is : " + name + " and Value is : " + value);
+				}//end for loop
+					
+			}//end function EatCookie
+		</script>
+	</head>
+	<body>
+		<form name="myform" action="">
+			<p> Click on the button and see what cookies you get to eat:</p>
+			<input type="button" value="Eat Cookies" onclick="EatCookie()"/>
+		</form>
+		
+	</body>
+	
+</html>
