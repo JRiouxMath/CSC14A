@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--Jeanine Rioux-->
 <!--CSC 14A 10/31/18-->
 
@@ -48,55 +47,4 @@
         <img id="four" src="fourblur.jpg">
         <img id="five" src="fiveblur.jpg">
     </body>
-=======
-<!--Jeanine Rioux-->
-<!--CSC 14A 10/31/18-->
-
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>
-            Image Guess
-        </title>
-        <style> 
-            body { margin: 20px; } 
-            img { margin: 20px; }
-        </style>
-        <script>
-            window.onload = init;
-
-            function reblur(image)
-            {
-                image.src = image.id + "blur.jpg";
-            }//end function reblur
-
-            function showAnswer(eventObj)
-            {
-                var image= eventObj.target;
-                image.src = image.id + ".jpg";
-
-                setTimeout(reblur, 8000, image);
-            }// end funciton showAnswer
-
-            function init()
-            {
-                var images = document.getElementsByTagName("img");
-                for (var i = 0; i < images.length; i++)
-                {
-                    images[i].onclick = showAnswer;
-                }//end for loop
-            }//end function init
-
-        </script>
-    </head>
-    <body>
-        <img id="zero" src="zeroblur.jpg">
-        <img id="one" src="oneblur.jpg">
-        <img id="two" src="twoblur.jpg">
-        <img id="three" src="threeblur.jpg">
-        <img id="four" src="fourblur.jpg">
-        <img id="five" src="fiveblur.jpg">
-    </body>
->>>>>>> aff49907af970bcc0aa42635fe05e4c1ad9edcd0
 </html>

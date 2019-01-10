@@ -58,8 +58,6 @@ var model = {
         view.displayMessage("You missed.");
         return false;
     },//end function fire
-
-
     
     isSunk: function (ship) {
         for (var i = 0; i < this.shipLength; i++) {
